@@ -10,7 +10,6 @@ class Reservation {
         method: req.method,
         body: req.body,
         headers: req.headers,
-        json: true,
       });
 
       return apiResponse;
