@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
-import { Authorize } from './services/identity.d';
 
 declare namespace Environment {
   /**
    * Custom request that includes all the types of express Request Object
    */
   interface CustomRequest extends Request {
-    user?: Authorize.ResponseObj;
+    user?: any;
     files?: any;
     custom?: any;
   }

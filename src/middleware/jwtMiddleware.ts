@@ -2,7 +2,6 @@ import { NextFunction } from 'express';
 import STATUS_CODES from 'http-status-codes';
 import { CustomRequest, CustomResponse } from '../environment';
 import { createResponse } from '../utils/helper';
-import { logger } from '../utils/logger';
 import jwt from 'jsonwebtoken';
 import usersModel from '../components/Auth/models/users.model';
 
@@ -14,11 +13,11 @@ class JWTMiddleware {
           user_id: userId,
           email: userEmail,
           session: sessionId,
-          userType
+          userType,
         },
         process.env.JWT_SECRET || 'Qwerty@#$%8978',
         {
-          expiresIn: process.env.JWT_EXPIRE_TIME || 80000,
+          expiresIn: process.env.JWT_EXPIRE_TIME || 1000000,
         }
       );
     } catch (e) {
@@ -50,7 +49,7 @@ class JWTMiddleware {
       // verify the jwt token
       let decoded: any;
       try {
-        decoded = await this.verifyToken(token);
+        decoded = await jwtMiddleware.verifyToken(token);
       } catch (e) {
         console.error(`Error in verifyToken : ${e}`);
         createResponse(res, STATUS_CODES.UNAUTHORIZED, 'UnAuthorized access');
@@ -96,5 +95,4 @@ class JWTMiddleware {
   }
 }
 
-const middlewareObj = new JWTMiddleware();
-export default middlewareObj;
+export const jwtMiddleware = new JWTMiddleware();

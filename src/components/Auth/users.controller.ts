@@ -7,7 +7,7 @@ import UsersHelper from './users.helper';
 import { UsersModel } from './models';
 import usersModel from './models/users.model';
 import usersHelper from './users.helper';
-import jwtMiddleware from '../../middleware/jwtMiddleware';
+import { jwtMiddleware } from '../../middleware/jwtMiddleware';
 
 class UsersController {
   async signUp(req: CustomRequest, res: CustomResponse) {
@@ -70,7 +70,12 @@ class UsersController {
       const sessionId = generatePassword(8);
 
       // generate JWT for user
-      const jwtToken = await jwtMiddleware.generateJWT(findUser.user_id, findUser.email, sessionId, findUser.user_type_id);
+      const jwtToken = await jwtMiddleware.generateJWT(
+        findUser.user_id,
+        findUser.email,
+        sessionId,
+        findUser.user_type_id
+      );
 
       // store sessionId in DB
       await UsersModel.updateOne(

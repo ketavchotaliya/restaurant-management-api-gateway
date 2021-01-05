@@ -16,34 +16,7 @@ export const RECORDS_PER_PAGE_FOR_PROVIDER_MATERIAL_LIST = 15;
 export const APP = {
   IDENTITY: 1,
   OWNER: 2,
-  CUSTOMER: 3
-};
-
-// APP Hosts
-export const HOST: Function = () => {
-  const ENV = process.env.ENV;
-  if (ENV === 'development') {
-    return {
-      ADMIN: `http://dev.google.com`,
-    };
-  } else if (ENV === 'test') {
-    return {
-      ADMIN: `http://test.google.com`,
-    };
-  } else {
-    return {
-      ADMIN: `http://dev-admin.google.com`,
-    };
-  }
-};
-
-export const APP_HOSTS = {
-  ADMIN: HOST().ADMIN,
-};
-
-// APP Links
-export const APP_LINKS = {
-  SET_PASSWORD: '/reset-password',
+  CUSTOMER: 3,
 };
 
 // Redis TTL

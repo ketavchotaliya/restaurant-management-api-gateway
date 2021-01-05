@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { createValidationResponse } from '../../utils/helper';
-import { isBoolean, isEmail, isEmpty, isIn, isJSON, isNumber, isString } from '../../utils/validator';
+import { isEmail, isEmpty } from '../../utils/validator';
 
 class UsersValidations {
   signup(req: Request, res: Response, next: NextFunction) {
@@ -27,7 +27,7 @@ class UsersValidations {
 
     if (isEmpty(user_type)) {
       errors.user_type = res.__('PUBLIC.user_type.required');
-    } else if (!isEmpty(user_type) && [0, 1].indexOf(+user_type) === -1) {
+    } else if (!isEmpty(user_type) && [1, 2].indexOf(+user_type) === -1) {
       errors.user_type = res.__('PUBLIC.user_type.valid');
     }
 

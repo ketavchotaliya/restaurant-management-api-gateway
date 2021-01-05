@@ -6,7 +6,7 @@ declare module Users {
     email?: string;
     password?: string;
     user_type_id?: number;
-    session_id?: number;
+    session_id?: string;
     is_active?: number;
     created_at?: Date;
     updated_at?: Date;

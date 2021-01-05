@@ -1,3 +1,3 @@
-import Identity from './identity';
+import Restaurant from './restaurant';
 
-export { Identity };
+export { Restaurant };
