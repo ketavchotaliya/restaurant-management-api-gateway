@@ -1,6 +1,6 @@
 import { Application } from 'express';
 
-import AuthRoute from './restaurant.route';
+import AuthRoute from './auth.route';
 
 /**
  * Init All routes here

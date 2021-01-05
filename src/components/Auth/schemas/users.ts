@@ -16,7 +16,7 @@ class Users extends Model {
 
 Users.init(
   {
-    users_id: {
+    user_id: {
       type: DataTypes.BIGINT.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
