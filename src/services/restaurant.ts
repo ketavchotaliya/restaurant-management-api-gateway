@@ -6,6 +6,10 @@ class Restaurant {
       // prepare service url
       const RestaurantUrl: string = process.env.RESTAURANT_APP_NAME + req.originalUrl;
 
+      // User details in Request Header
+      req.headers.logged_in_user_id = req.custom.logged_in_user_id;
+      req.headers.user_type_id = req.custom.user_type_id;
+
       const apiResponse = await got(RestaurantUrl, {
         method: req.method,
         body: req.body,
