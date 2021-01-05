@@ -37,6 +37,27 @@ class UsersValidations {
       next();
     }
   }
+
+  login(req: Request, res: Response, next: NextFunction) {
+    const { email, password } = req.body;
+    const errors: any = {};
+
+    if (isEmpty(email)) {
+      errors.email = res.__('PUBLIC.email.required');
+    } else if (!isEmail(email)) {
+      errors.email = res.__('PUBLIC.email.valid');
+    }
+
+    if (isEmpty(password)) {
+      errors.password = res.__('PUBLIC.password.required');
+    }
+
+    if (Object.keys(errors).length > 0) {
+      createValidationResponse(res, errors);
+    } else {
+      next();
+    }
+  }
 }
 
 export default new UsersValidations();
