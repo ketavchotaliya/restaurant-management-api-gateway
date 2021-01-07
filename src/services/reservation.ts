@@ -6,10 +6,18 @@ class Reservation {
       // prepare service url
       const ReservationUrl: string = process.env.RESERVATION_APP_NAME + req.originalUrl;
 
-      const apiResponse = await got(ReservationUrl, {
+      // request header
+      const reqHeader = {
+        logged_in_user_id: req.custom.logged_in_user_id,
+        user_type_id: req.custom.user_type_id,
+        Authorization: req.headers.authorization,
+      };
+
+      const apiResponse: any = await got(ReservationUrl, {
         method: req.method,
+        json: true,
         body: req.body,
-        headers: req.headers,
+        headers: reqHeader,
       });
 
       return apiResponse;

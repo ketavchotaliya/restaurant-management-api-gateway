@@ -1,3 +1,4 @@
 import Restaurant from './restaurant';
+import Reservation from './reservation';
 
-export { Restaurant };
+export { Restaurant, Reservation };
