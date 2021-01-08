@@ -1,5 +1,5 @@
 import { Transaction } from 'sequelize';
-import { Users, UsersType } from '../schemas';
+import { Users } from '../schemas';
 import { Users as UserDef } from '../types';
 
 class UsersModel {
@@ -35,7 +35,7 @@ class UsersModel {
   async updateOne(whereObj: {}, userObj: UserDef, transaction: Transaction | undefined = undefined): Promise<any> {
     try {
       await Users.update(userObj, {
-        where: {},
+        where: whereObj,
         transaction: transaction ? transaction : undefined,
       });
       return;

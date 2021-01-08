@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS restaurant_owner.restaurant (
 	open_time_2 varchar(100) NULL,
 	close_time_2 varchar(100) NULL,
 	is_restaurant_open TINYINT DEFAULT 1 NOT NULL,
-	table_allocation_time varchar(100) NOT NULL,
+	min_reservation_period varchar(100) NOT NULL,
 	is_active TINYINT DEFAULT 1 NULL,
 	created_at DATETIME DEFAULT CURRENT_TIMESTAMP NULL,
 	updated_at DATETIME NULL,

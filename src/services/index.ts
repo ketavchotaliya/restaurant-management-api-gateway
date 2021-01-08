@@ -1,3 +1,4 @@
-import Identity from './identity';
+import Restaurant from './restaurant';
+import Reservation from './reservation';
 
-export { Identity };
+export { Restaurant, Reservation };

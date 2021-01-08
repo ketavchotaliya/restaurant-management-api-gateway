@@ -8,7 +8,7 @@ class Users extends Model {
   public email!: string;
   public password!: string;
   public user_type_id!: number;
-  public session_id!: number;
+  public session_id!: string;
   public is_active!: number;
   public created_at!: Date;
   public updated_at!: Date;
@@ -16,7 +16,7 @@ class Users extends Model {
 
 Users.init(
   {
-    users_id: {
+    user_id: {
       type: DataTypes.BIGINT.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
@@ -39,7 +39,7 @@ Users.init(
       allowNull: false,
     },
     session_id: {
-      type: new DataTypes.BIGINT().UNSIGNED,
+      type: new DataTypes.STRING(),
     },
     is_active: {
       type: new DataTypes.TINYINT(),

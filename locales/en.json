@@ -10,11 +10,6 @@
       }
     }
   },
-  "LOCATION": {
-    "COUNTRY_LIST": "Country List",
-    "STATE_LIST": "State List",
-    "CITY_LIST": "City List"
-  },
   "PUBLIC": {
     "first_name": {
       "required": "First Name is Required",
@@ -30,6 +25,10 @@
     },
     "password": {
       "required": "Password is required"
+    },
+    "user_type": {
+      "required": "User Type is required",
+      "valid": "User Type is invalid"
     },
     "has_accepted_tnc": {
       "valid": "Terms and Condition should be valid"

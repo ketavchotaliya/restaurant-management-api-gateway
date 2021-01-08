@@ -19,16 +19,20 @@ export const createResponse = (
   status: number,
   message: string,
   payload: object | null = {},
-  pager: object | null = {}
+  pager: object | null = {},
+  header: object | null = {}
 ) => {
   const resPager = typeof pager !== 'undefined' ? pager : {};
 
-  return res.status(status).json({
-    status,
-    message,
-    payload,
-    pager: resPager,
-  });
+  return res
+    .status(status)
+    .set(header)
+    .json({
+      status,
+      message,
+      payload,
+      pager: resPager,
+    });
 };
 
 /**
